@@ -1,0 +1,233 @@
+/* =========================
+   VARIABLES DE COLOR
+   ========================= */
+:root {
+    --bg-color: #e6e8eb;
+    --bg-color2: #ffffff;
+    --text-color: #2a2a2a;
+    --accent-color: #9aa0a6;
+    --select-color: #d6d9dd;
+    --link-color: #5c6f82;
+    --border-color: #6b7280;
+    --outline-color: #b0b5bb;
+    --outline-color2: #e6e8eb;
+    --post-shadow-color: #00000030;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+::selection {
+    background: var(--select-color);
+    color: var(--border-color);
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: var(--site-bg);
+}
+
+p { line-height: 1.5em; }
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: .2s ease;
+}
+a:hover {
+    color: var(--accent-color);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+    background: var(--header-bg);
+    background-color: var(--accent-color);
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    margin: 0 auto;
+    border-top: 12px solid var(--bg-color2);
+    border-bottom: 12px solid var(--bg-color2);
+    text-align: center;
+}
+
+header img {
+    max-width: 100%;
+    margin-top: 1em;
+}
+
+marquee {
+    background: var(--bg-color2);
+    color: var(--border-color);
+    padding: .3em;
+    border-top: 2px dashed var(--outline-color);
+    border-bottom: 2px dashed var(--outline-color);
+}
+
+/* =========================
+   LAYOUT PRINCIPAL
+   ========================= */
+#content {
+    display: flex;
+    max-width: 960px;
+    margin: auto;
+    padding: 1em;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+#sidebar {
+    background-color: var(--bg-color2);
+    color: var(--border-color);
+    width: 200px;
+    min-width: 70px;
+    margin-right: 1.5em;
+    border-radius: .5em;
+    padding: .5em;
+}
+
+#avatar {
+    text-align: center;
+    margin: .5em;
+}
+
+#avatar img {
+    max-width: 100%;
+}
+
+#bio {
+    margin: 1em;
+    padding: .5em;
+    background: var(--bg-color);
+    border: 4px double var(--bg-color2);
+    border-radius: 1.5em;
+    font-size: small;
+}
+
+#stats ul {
+    padding-left: 1.5em;
+    font-size: small;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1em 0;
+}
+
+nav li {
+    margin: .4em 0;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    background: var(--bg-color);
+    border: 3px double var(--outline-color);
+    padding: .4em;
+    font-weight: bold;
+}
+nav a:hover {
+    background: var(--select-color);
+    color: var(--accent-color);
+}
+
+/* =========================
+   MAIN / POSTS
+   ========================= */
+main {
+    padding: .5em;
+    flex: 1;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: white;
+    filter:
+        drop-shadow(2px 0 0 var(--outline-color))
+        drop-shadow(0 2px 0 var(--outline-color))
+        drop-shadow(-2px 0 0 var(--outline-color))
+        drop-shadow(0 -2px 0 var(--outline-color));
+}
+
+h2, h4 {
+    color: var(--border-color);
+}
+
+/* Post destacat */
+#top {
+    background-color: var(--bg-color);
+    padding: 1em;
+    border-radius: .5em;
+    margin-bottom: 1em;
+}
+
+#top section {
+    background: var(--bg-color2);
+    border-radius: .5em;
+    padding: .5em 1em;
+    margin-bottom: .5em;
+    width: fit-content;
+}
+
+/* Posts normals */
+article {
+    background-color: var(--bg-color2);
+    padding: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .4em;
+    margin-bottom: 1em;
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+article img {
+    max-width: 100%;
+}
+
+.post-header {
+    font-weight: bold;
+    color: var(--border-color);
+    padding-bottom: .4em;
+    border-bottom: 4px double var(--outline-color);
+    margin-bottom: .5em;
+}
+
+.timestamp {
+    float: right;
+    font-weight: normal;
+    font-size: smaller;
+}
+
+/* =========================
+   READ MORE
+   ========================= */
+details > summary {
+    cursor: pointer;
+}
+
+.readmore summary {
+    font-weight: bold;
+    color: var(--border-color);
+    list-style: none;
+}
+
+.readmore summary::-webkit-details-marker {
+    display: none;
+}
+
+.readmore[open] summary {
+    border-bottom: 2px dashed var(--bg-color);
+    margin-bottom: .5em;
+    padding-bottom: .3em;
+}

@@ -26,26 +26,24 @@
     </div>
        
     <div id="bio">
-     <p> Hola Ketalunya! Sóc l'Insaly, un estudiant d'informàtica intentant fer surar aquesta web cutrota </p>
+     Hola Ketalunya! Sóc l'Insaly, un estudiant d'informàtica intentant fer surar aquesta web cutrota
     </div>
-       
-    <div id="stats">
-     <ul>
-      <li> edat: 20 </li>
-      <li> pronoms: qualsevol </li>
-      <li> color preferit: verd </li>
-     </ul>
+    
+    <div id="site-info">
+     Última actualització: <span id="lastupdate"></span><br>
+     Ets el visitant n. <span id="hitcount"></span>
     </div>
        
     <nav>
      <ul>
       <li> <a href="index.html"> Inici </a> </li>
-      <li> <a href="index.html"> Botó 1 </a> </li>
-      <li> <a href="index.html"> Botó 2 </a> </li>
-      <li> <a href="index.html"> Botó 3 </a> </li>
-      <li> <a href="index.html"> Botó 4 </a> </li>
+      <li> <a href="index.html"> Creador </a> </li>
+      <li> <a href="index.html"> Manifest </a> </li>
+      <li> <a href="index.html"> Articles </a> </li>
+      <li> <a href="index.html"> Projectes </a> </li>
      </ul>
     </nav>
+    
     <a href="https://hillhouse.neocities.org/journal/notes/palestine" target="_blank"> <img src="resources/buttons/palestine.gif" alt="From the river to the sea"> </a>
     <a> <img src="resources/buttons/estelada.png" alt="Estelada"> </a>
     <a href="https://neocities.org/" target="_blank"> <img src="resources/buttons/neocities.gif" alt="Neocities"> </a>
@@ -55,6 +53,7 @@
     <a href="https://spanishpolice.github.io/" target="_blank"> <img src="resources/buttons/acab.gif" alt="ACAB"> </a>
     <a> <img src="resources/buttons/ralsei.gif" alt="Ralsei"> </a>
     <a> <img src="resources/buttons/anythingbut.gif" alt="Fuck Chrome"> </a>
+    
    </aside>
      
    <main>
@@ -62,19 +61,36 @@
     <article id="top" class="clearfix">
       
      <section>
-      <h1> Benvingut/a al meu Blog! </h1>
-      <p> Passa una bona estona llegint les merdes q penjo o el q sigui això és un text de prova :p </p>
+      <h1> Benvingut/a a la meva trinxera! </h1>
+
+      <p> La definició d'una trinxera, segons el DIEC2 és "f. [LC] [DE] Excavació estreta i més o menys llarga, la terra
+       extreta de la qual es fa servir de parapet, que serveix per a protegir els soldats contra el foc dels enemics." <br><br>
+       
+       Tanmateix, a internet no s'hi pot excavar de forma literal però sí que s'hi poden crear espais per a refugiar-se del
+       foc enemic. Aquesta web és un d'aquests espais per a mi mateix, aïllat de la hostilitat dels algorismes de
+       retenció d'audiència, la IA, els NFTs i les criptomonedes. Un espai de descans per als meus receptors de dopamina i lluny
+       de l'abast del capital. <br><br>
+       
+       L'altre objectiu d'aquesta web és aportar un granet de sorra en la creació d'un teixit catalanoparlant dins el
+       moviment de l'IndieWeb, rebutjant la Web 3.0 i les seves implicacions. Si en vols saber més, ves a "Manifest" <br><br>
+       
+       M'és igual si tens mig minut o mil hores, et dono la benvinguda a la meva trinxera personal i espero que passis una
+       bona estona explorant-la. Gaudeix :)
+      </p>
      </section>
       
      <section>
-      <h4>vull penjar això:</h4>
-       <ul>
-        <li> projectes </li>
-        <li> música que escolto </li>
-        <li> posts </li>
-        <li> molt més! </li>
-       </ul>
-      </section>
+      <p style="text-align: center"> <i> Hi ha un lloc que han cantat molts altres abans i que seguiran cantant molts altres després <br>
+       que no existeix, ni existirà mai en el món material <br>
+       un lloc que no ens és donat, sinó que s'inventa <br>
+       un lloc que va per sota, pels sobres i els entres, <br>
+       un lloc en el no-lloc, justament per allà on s'esquerda <br>
+       una esquerda o una escletxa, segons qui miri, segons el grau d'esperança <br>
+       hi ha un lloc que ja fa temps que imaginem i no podem parar d'imaginar entre cos i cos. <br><br> </i>
+       
+      - Remei de Ca la Fresca
+      </p>
+     </section>
       
     </article>
      
@@ -94,5 +110,27 @@
     </article>
    </main>
   </div>
+  
+  <script>
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+           var site_data = JSON.parse(this.responseText);
+           var num_arr = site_data.info.views.toString().split("");
+           var num_str = "";
+           for (i = 0; i < num_arr.length; i++) {
+               num_str += num_arr[i];
+               if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
+               var date_str = site_data.info.last_updated;
+               var date_obj = new Date(site_data.info.last_updated);
+               document.getElementById("lastupdate").innerHTML = (date_obj.getMonth()+1) + "-" + date_obj.getDate() + "-" + date_obj.getFullYear();
+           }
+           document.getElementById("hitcount").innerHTML = num_str;
+       }
+   };
+   xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=Insaly", true);
+   xhttp.send();
+  </script>
+  
  </body>
 </html>

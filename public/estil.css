@@ -83,7 +83,7 @@ header img {
 
 @keyframes marquee-scroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%)}
+    to { transform: translateX(-100%)}
 }
 
 /* =========================
@@ -118,18 +118,13 @@ header img {
     max-width: 100%;
 }
 
-#bio {
-    margin: 1em;
+#bio, #site-info {
     padding: .5em;
     background: var(--bg-color);
     border: 4px double var(--bg-color2);
-    border-radius: 1.5em;
+    border-radius: 1em;
     font-size: small;
-}
-
-#stats ul {
-    padding-left: 1.5em;
-    font-size: small;
+    margin-bottom: .5em;
 }
 
 nav ul {
@@ -155,6 +150,8 @@ nav a:hover {
     color: var(--accent-color);
 }
 
+
+
 /* =========================
    MAIN / POSTS
    ========================= */
@@ -164,6 +161,7 @@ main {
 }
 
 h1 {
+    text-align: center;
     font-size: 1.5em;
     color: white;
     filter:
@@ -180,9 +178,6 @@ h2, h4 {
 /* Post destacat */
 #top {
     background-color: var(--bg-color);
-    padding: 1em;
-    border-radius: .5em;
-    margin-bottom: 1em;
 }
 
 #top section {
@@ -190,7 +185,6 @@ h2, h4 {
     border-radius: .5em;
     padding: .5em 1em;
     margin-bottom: .5em;
-    width: fit-content;
 }
 
 /* Posts normals */

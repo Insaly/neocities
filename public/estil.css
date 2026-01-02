@@ -237,3 +237,17 @@ details > summary {
     margin-bottom: .5em;
     padding-bottom: .3em;
 }
+
+/* =========================
+   EN CONSTRUCCIÓ
+   ========================= */
+
+.rory {
+  width: auto;
+  height: 100px;
+}
+
+.construccio {
+  display: flex;
+  justify-content: center;
+}
